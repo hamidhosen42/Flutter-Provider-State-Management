@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_provider_state_management/home_screen.dart';
 import 'package:flutter_provider_state_management/statefull_widget_screen.dart';
+import 'package:flutter_provider_state_management/why_provider.dart';
 
 void main(List<String> args) {
   runApp(MyApp());
@@ -20,7 +21,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       // home: HomeScreen(),
-      home: StateFulWidget(),
+      // home: StateFulWidget(),
+      home: WhyProviderScreen(),
     );
   }
 }
