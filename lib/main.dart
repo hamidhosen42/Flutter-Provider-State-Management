@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_provider_state_management/home_screen.dart';
+import 'package:flutter_provider_state_management/statefull_widget_screen.dart';
 
 void main(List<String> args) {
   runApp(MyApp());
@@ -18,7 +19,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomeScreen(),
+      // home: HomeScreen(),
+      home: StateFulWidget(),
     );
   }
 }
