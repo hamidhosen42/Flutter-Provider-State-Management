@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_provider_state_management/home_screen.dart';
 import 'package:flutter_provider_state_management/provider/count_provider.dart';
 import 'package:flutter_provider_state_management/provider/example_one_provider.dart';
+import 'package:flutter_provider_state_management/provider/favourite_provider.dart';
 import 'package:flutter_provider_state_management/screens/examples/count_example.dart';
 import 'package:flutter_provider_state_management/screens/examples/example_one.dart';
+import 'package:flutter_provider_state_management/screens/examples/favourite_example/favourite_screen.dart';
 import 'package:flutter_provider_state_management/statefull_widget_screen.dart';
 import 'package:flutter_provider_state_management/why_provider.dart';
 import 'package:provider/provider.dart';
@@ -21,8 +23,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_)=>CountProvider()),
+        ChangeNotifierProvider(create: (_) => CountProvider()),
         ChangeNotifierProvider(create: (_) => ExampleOneProvider()),
+        ChangeNotifierProvider(create: (_) => FavouriteItemProvider())
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -34,7 +37,8 @@ class MyApp extends StatelessWidget {
         // home: StateFulWidget(),
         // home: WhyProviderScreen(),
         // home: CountExampleScreen(),
-        home: ExampleOneScreen(),
+        // home: ExampleOneScreen(),
+        home: FavouriteScreen(),
       ),
     );
   }
