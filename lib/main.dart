@@ -3,7 +3,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_provider_state_management/home_screen.dart';
 import 'package:flutter_provider_state_management/provider/count_provider.dart';
+import 'package:flutter_provider_state_management/provider/example_one_provider.dart';
 import 'package:flutter_provider_state_management/screens/examples/count_example.dart';
+import 'package:flutter_provider_state_management/screens/examples/example_one.dart';
 import 'package:flutter_provider_state_management/statefull_widget_screen.dart';
 import 'package:flutter_provider_state_management/why_provider.dart';
 import 'package:provider/provider.dart';
@@ -17,8 +19,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (_) => CountProvider(),//!Single provider
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_)=>CountProvider()),
+        ChangeNotifierProvider(create: (_) => ExampleOneProvider()),
+      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
@@ -28,8 +33,26 @@ class MyApp extends StatelessWidget {
         // home: HomeScreen(),
         // home: StateFulWidget(),
         // home: WhyProviderScreen(),
-        home: CountExampleScreen(),
+        // home: CountExampleScreen(),
+        home: ExampleOneScreen(),
       ),
     );
   }
 }
+
+// return ChangeNotifierProvider(
+//       // create: (_) => CountProvider(),//!Single provider
+//       create: (_)=>ExampleOneProvider(),
+//       child: MaterialApp(
+//         debugShowCheckedModeBanner: false,
+//         title: 'Flutter Demo',
+//         theme: ThemeData(
+//           primarySwatch: Colors.blue,
+//         ),
+//         // home: HomeScreen(),
+//         // home: StateFulWidget(),
+//         // home: WhyProviderScreen(),
+//         // home: CountExampleScreen(),
+//         home: ExampleOneScreen(),
+//       ),
+//     );
